@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,13 +54,14 @@
         jQuery(function($){
             $(document).ready(function() {
                 var lang = Cookies.get('site-lang')
-                console.log(lang)
+                var lang = 'fr'
+                 
                 if(lang != 'en' && lang != 'fr'){
                     Cookies.set('site-lang', 'en', { expires: 30 });
                     lang = 'en';
                     $("html").attr("lang", lang);
                 } 
-                $("html").attr("lang", lang);
+                 $("html").attr("lang", lang);
                 $('.lang-en').on('click', function(e){
                     
                     return set_lang(e, 'en');
