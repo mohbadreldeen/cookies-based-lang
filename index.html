@@ -54,8 +54,6 @@
         jQuery(function($){
             $(document).ready(function() {
                 var lang = Cookies.get('site-lang')
-                var lang = 'fr'
-                 
                 if(lang != 'en' && lang != 'fr'){
                     Cookies.set('site-lang', 'en', { expires: 30 });
                     lang = 'en';
