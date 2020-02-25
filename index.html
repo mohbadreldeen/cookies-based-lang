@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+   
+    p.en,
+    p.fr{
+        display: none;
+    }
+    html:lang(en) p.en{
+        display: block;
+    }
+    html:lang(fr) p.fr{
+        display: block;
+    }
+    </style>
+</head>
+<body>  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      
+            
+     
+        <h5 class="my-0 mr-md-auto font-weight-normal">Language Cookie Based</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a href="#" class=" p-2 text-darklang lang-en">En</a>
+            <a href="#" class="p-2 text-dark lang lang-fr">Fr</a> 
+           
+        </nav>
+     
+      </div>   </div>
+      <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="en">English Text</p>
+                <p class="fr">Frensh Text</p>
+            </div>
+        </div>
+        
+          </div>
+    
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+  
+    <script>
+        jQuery(function($){
+            $(document).ready(function() {
+                var lang = Cookies.get('site-lang')
+                console.log(lang)
+                if(lang != 'en' && lang != 'fr'){
+                    Cookies.set('site-lang', 'en', { expires: 30 });
+                    lang = 'en';
+                    $("html").attr("lang", lang);
+                } 
+                $("html").attr("lang", lang);
+                $('.lang-en').on('click', function(e){
+                    
+                    return set_lang(e, 'en');
+                })
+                $('.lang-fr').on('click', function(e){
+                    return set_lang(e, 'fr');
+                })
+                function set_lang(e, lang){
+                    e.stopPropagation();
+                    e.stopImmediatePropagation()
+                    Cookies.set('site-lang', lang, { expires: 30 });
+                    $("html").attr("lang", lang);
+                    return false;
+                }
+            })
+   
+        });
+    
+    </script>
+</body>
+</html>
